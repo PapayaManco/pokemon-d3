@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pokémon</title>
+<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style></style>
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <h2>Caracterización de dominio</h2>
+    <p> 
+    Voy a trabajar con la base de datos de todos los Pokémones (sacado de <a href="https://www.kaggle.com/mariotormo/complete-pokemon-dataset-updated-090420">Kaggle</a>), para representar de forma interactiva e interesante los datos que cada uno
+    de éstos tiene. Lo que para los fanáticos de la saga sea algo agradable de ver y para los que no lo conocen, sea algo interesante y divertido de 
+    conocer.
+    </p>
+    <h2>Abstracción de datos</h2>
+        <p>Para la columna <b>id</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>pokedex_number</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para las columnas <b>name</b>,<b>german_name</b>,<b>japanese_name</b> :</p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <p>Para la columna <b>generation</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>status</b>:</p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>species</b>:</p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>type_number</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>Ciclico</b>, ya que solo puede ir de 1 a 2.</li>
+        </ol>
+        <br>
+        <p>Para las columnas <b>type_1</b>, <b>type_2</b>:</p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>height_m</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>weight_kg</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>abilities_number</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>Ciclico</b>, ya que solo puede ir de 1 a 3.</li>
+        </ol>
+        <br>
+        <p>Para las columnas <b>ability_1</b> , <b>ability_2</b>, <b>ability_hidden</b>:<p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>weight_kg</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para las columnas <b>total_points</b>,<b>hp</b>,<b>attack</b>,<b>defense</b>,<b>sp_attack</b>,<b>sp_defense</b>,<b>speed</b>,<b>catch_rate</b>,
+        <b>base_friendship</b>,<b>base_experience</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>growth_rate</b>:</p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>egg_type_number</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>Cíclico</b>, ya que sus valores solo pueden ir de 1 a 2.</li>
+        </ol>
+        <br>
+        <p>Para las columnas <b>egg_type_1</b> y <b>egg_type_2</b>:</p>
+        <ol>
+            <li><b>Categórico</b>, ya que el nombre de un difunto no tiene un orden intrinseco.</li>
+            <li>El resto de las clasificaciones <b>no aplica</b> a este dato.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>percentage_male</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>Cíclico</b>, ya que sus valores van del 0 al 100 al ser un porcentaje.</li>
+        </ol>
+        <br>
+        <p>Para la columna <b>egg_cycles</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>No cíclico</b>, ya que sus valores podrían aumentar indefinidamente.</li>
+        </ol>
+        <br>
+        <p>Para las columnas <b>against_normal</b>, <b>against_fire</b>, <b>against_water</b>, <b>against_electric</b>, <b>against_grass</b>, <b>against_ice</b>,
+            <b>against_fight</b>, <b>against_poison</b>, <b>against_ground</b>, <b>against_flying</b>, <b>against_psychic</b>, <b>against_bug</b>,
+            <b>against_rock</b>,<b>against_ghost</b>,<b>against_dragon</b>,<b>against_dark</b>,<b>against_steel</b> y <b>against_fairy</b>:</p>
+        <ol>
+            <li><b>Ordenado</b>, ya que la edad si tiene un orden intrínseco.</li>
+            <li><b>Cuantitativo</b>, ya que si existe comparación aritmética exacta entre los valores posibles del atributo.</li>
+            <li><b>Secuencial</b>, ya que solo puede tomar valores positivos.</li>
+            <li><b>Cíclico</b>, ya que sus valores van del 0 al 4.</li>
+        </ol>
+    <h2>Abstracción de tareas</h2>
+    <p>Se va a querer <b>buscar</b> pokémones usando distintos filtros, ya sea a la vez o no, para saber más de ellos.
+    <br>
+    Se va a poder <b>comparar</b> distintos pokemones mostrando su información al mismo tiempo, para poder ver que pokemon es mejor en "x" atributo con respecto
+    a otro.
+    <br>
+    Se podrá <b>disfrutar</b> la informacion de los pokemones, ya que son muchisimos y explorarlos será algo de relajación y diversión, ya sea para expertos
+    o novatos.</p>
+    <h2>Codificacion visual y de interacción</h2>
+    <p>Decidí dejar todo en ingles, ya que la base de datos se encuentra en este idioma y traducirlo no es una tarea facil, además le da cohesion al trabajo.
+       <br>
+    Originalmente no iba a poner los sprites de cada pokemon, ya que la base de datos no venian con estos, pero luego de pensarlo decidi buscar en interesantet
+       si alguien la habia subido, y para mi suerte si lo era! , lo saque de <a href="https://github.com/msikma/pokesprite">este</a> repositorio de GitHub
+       lo que si tuve que arreglar a mano fue los nombres, ya que decidi colocar el sprite que coincidia con el nombre del poquemon, pero algunos por ejemplo
+       se llamaba "geodude_alola" pero el pokemon se llama "Alolan Geodude"!, asi que tuve que arreglar eso a mano.
+       <br>
+       Decidi dejarles una pokebola atrás, junto con su nombre, para que tuvieran un fondo acorde (ademas que me recuerdan a los tazos), como dato puedo decir que originalmente iban a ser rectángulos con el color del tipo principal del
+       Pokémon, pero se parecería mucho al trabajo de FIFA, y dejé esa idea para el rectángulo de información que sale al poner el mouse sobre un Pokémon.
+       La cual no hace dificil la lectura por el color y tamaño de letra que decidí usar.
+       <br>
+       Dentro de este cuadro se encuentran datos importantes del pokémon junto con un gráfico de sus estadisticas base. El gráfico es blanco para hacer contraste
+       con todos los fondos y no dificultar su lectura.
+    </p>
+    <h2>Herramienta de visualización</h2>
+    <label for="selectGen">Filter by gen:</label>
+    <select id="selectGen"></select> 
+    <label for="selecttype">Filter by type:</label>
+    <select id="selectType"></select> 
+    <div id="container" class="svg-container"></div>
+    <script type="text/javascript" src='poke.js' charset='utf-8'></script>
+    </div>
+
+</body>
+</html>
