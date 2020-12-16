@@ -3,8 +3,9 @@ A project I made for a class using d3.js with the pokemon database, you can see 
 
 # How to use it
 
-in the folder cmd use ```python -m http.server``` and open the EX.html
+in the folder, open cmd and use the command ```python -m http.server``` and open the EX.html
 
+# References
 
 Pokemon database is from: https://www.kaggle.com/mariotormo/complete-pokemon-dataset-updated-090420">Kaggle
 
